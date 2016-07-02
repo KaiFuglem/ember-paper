@@ -133,17 +133,12 @@ export default PaperMenuAbstract.extend({
     position.top += offsets.top;
     position.left += offsets.left;
 
-    clamp(position);
-
-
-
+    // clamp(position);
 
     el.css({
       top: position.top + 'px',
       left: position.left + 'px'
     });
-
-
 
     containerNode.style[this.get('constants').get('CSS').TRANSFORM_ORIGIN] = transformOrigin;
 
