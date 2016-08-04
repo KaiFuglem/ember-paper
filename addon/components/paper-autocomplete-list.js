@@ -81,14 +81,17 @@ export default Ember.Component.extend({
     var ul = this.$();
 
     if (ul) {
-      var li  = ul.find('li:eq('+this.get('selectedIndex')+')')[0],
-        top = li.offsetTop,
-        bot = top + li.offsetHeight,
-        hgt = ul[0].clientHeight;
-      if (top < ul[0].scrollTop) {
-        ul[0].scrollTop = top;
-      } else if (bot > ul[0].scrollTop + hgt) {
-        ul[0].scrollTop = bot - hgt;
+      var li  = ul.find('li:eq('+this.get('selectedIndex')+')')[0];
+
+      if (li) {
+        var top = li.offsetTop,
+          bot = top + li.offsetHeight,
+          hgt = ul[0].clientHeight;
+        if (top < ul[0].scrollTop) {
+          ul[0].scrollTop = top;
+        } else if (bot > ul[0].scrollTop + hgt) {
+          ul[0].scrollTop = bot - hgt;
+        }
       }
     }
   }),
