@@ -231,7 +231,10 @@ export default Ember.Component.extend(HasBlockMixin, {
     } else {
       //no cache
 
-      var data = this.filterArray(source, searchText, lookupKey);
+      // commented out to allow autocomplete to display non-matching results
+      // var data = this.filterArray(source, searchText, lookupKey);
+      var data = source.get('content');
+
       if (source.then && source.get('isFulfilled')) {
         //cache when we have a PromiseArray
         this.cacheSet(searchText, data);
